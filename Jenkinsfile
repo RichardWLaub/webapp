@@ -1,6 +1,9 @@
 node {
     stage('Build') {
         git 'https://github.com/RichardWLaub/webapp.git'
-        sh "docker build -t jenkins-test-build ."
+        sh "docker image build -t jenkins-build ."
+    }
+    stage('Test') {
+        sh "docker container run --rm -it jenkins-build /usr/bin/python /opt/webapp/tests.py"
     }
 }
