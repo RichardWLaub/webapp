@@ -4,6 +4,6 @@ node {
         sh "docker image build -t jenkins-build ."
     }
     stage('Test') {
-        sh "docker container run --rm -it jenkins-build /usr/bin/python /opt/webapp/tests.py"
+        sh "docker container run --rm jenkins-build /usr/bin/python /opt/webapp/tests.py"
     }
 }
