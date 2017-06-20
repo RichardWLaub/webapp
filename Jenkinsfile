@@ -1,6 +1,6 @@
 node {
     stage('Build') {
-        git 'https://github.com/$GITHUB_ID/webapp.git'
+        git "https://github.com/$GITHUB_ID/webapp.git"
         sh "docker image build -t $DOCKERHUB_ID/jenkins-build ."
     }
     stage('Test') {
